@@ -16,7 +16,7 @@ I merged the two datasets, then changed all ratings of 0 to missing. Food.com on
 
 I then took the average rating for each recipe, and split the `nutrition` column into separate number columns for calories, fat, sugar, and so on.
 
-Cooking time is very skewed. Half of recipes take under 35 minutes, but the longest one says 1,051,200 minutes. Ratings are also skewed — most recipes are close to 5 stars.
+Cooking time is very skewed. Half of recipes take under 35 minutes, but the longest one says 1,051,200 minutes. Ratings are also skewed like most recipes are close to 5 stars.
 
 Here is the average rating by cooking time and number of steps:
 
@@ -66,7 +66,7 @@ I added `n_ingredients`, `calories`, `protein`, `sugar`, and `total fat`.
 
 I took the log of `minutes` and `calories` because both have huge outliers, and a log keeps those from taking over the model. I scaled the other numbers so they are all on a similar range.
 
-I switched to a random forest because the table above showed the pattern flips direction — more steps helps long recipes but hurts short ones. A straight line cannot do that, but a tree can.
+I switched to a random forest because the table above showed the pattern flips directions, more steps helps long recipes but hurts short ones. A straight line cannot do that, but a tree can.
 
 I used `GridSearchCV` to pick the settings. The best were `max_depth=5`, `min_samples_leaf=20`, `n_estimators=50`.
 
